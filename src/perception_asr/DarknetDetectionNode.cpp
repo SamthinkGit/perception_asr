@@ -51,8 +51,8 @@ DarknetDetectionNode::detection_callback(
       vision_msgs::msg::Detection2D detection_msg;
       detection_msg.header = msg->image_header;
 
-      detection_msg.bbox.center.position.x = (bbx.xmax - bbx.xmin) / 2;
-      detection_msg.bbox.center.position.y = (bbx.ymax - bbx.ymin) / 2;
+      detection_msg.bbox.center.position.x = (bbx.xmax - bbx.xmin) / 2 + bbx.xmin;
+      detection_msg.bbox.center.position.y = (bbx.ymax - bbx.ymin) / 2 + bbx.ymin;
       detection_msg.bbox.size_x = bbx.xmax - bbx.xmin;
       detection_msg.bbox.size_y = bbx.ymax - bbx.ymin;
 
